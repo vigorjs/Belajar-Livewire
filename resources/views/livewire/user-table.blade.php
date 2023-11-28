@@ -1,6 +1,5 @@
 <div>
-    {{-- The best athlete wants his opponent at his best. --}}
-
+    @include('my_components.alert_success')
     <table class="table table-responsive">
         <thead>
             <tr>
@@ -18,8 +17,8 @@
                     <td>{{ $user->email }}</td>
                     <td>
                         <a href="{{ route('user.details', $user->id) }}" class="badge bg-primary">Detail</a>
-                        <a href="" class="badge bg-warning">Edit</a>
-                        <a href="" class="badge bg-danger">Delete</a>
+                        <a href="{{ route('user.edit', $user->id) }}" class="badge bg-warning">Edit</a>
+                        <button wire:click="delete({{ $user->id }})" class="btn badge bg-danger">Delete</button>
                     </td>
                 </tr>
             @endforeach

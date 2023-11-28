@@ -26,11 +26,13 @@ class UserCreate extends Component
             'password' => Hash::make($this->password)
         ]);
 
-        session()->flash('success', 'User created successfully');
 
         $this->name = null;
         $this->email = null;
         $this->password = null;
+
+        session()->flash('success', 'User created successfully');
+        $this->dispatch('userStore');
     }
 
     public function render()

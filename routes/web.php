@@ -27,3 +27,4 @@ Route::get('/user', function () {
 })->name('user.index');
 
 Route::get('/user/{id}', [UserController::class, 'show'])->name('user.details');
+Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
